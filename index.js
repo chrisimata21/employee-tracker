@@ -539,3 +539,72 @@ deleteDepartment = () => {
       });
   });
 };
+
+// function to delete role
+deleteRole = () => {
+  const roleSql = `SELECT * FROM role`;
+
+  connection.promise().query(roleSql, (err, data) => {
+    if (err) throw err;
+
+    const role = data.map(({ title, id }) => ({ name: title, value: id }));
+
+    inquirer
+      .prompt([
+        {
+          type: "list",
+          name: "role",
+          message: "What role do you want to delete?",
+          choices: role,
+        },
+      ])
+      .then((roleChoice) => {
+        const role = roleChoice.role;
+        const sql = `DELETE FROM role WHERE id = ?`;
+
+        connection.query(sql, role, (err, result) => {
+          if (err) throw err;
+          console.log("Successfully deleted!");
+
+          showRoles();
+        });
+      });
+  });
+};
+
+// function to delete employees
+deleteEmployee = () => {
+  // get employees from employee table
+  const employeeSql = `SELECT * FROM employee`;
+
+  connection.promise().query(employeeSql, (err, data) => {
+    if (err) throw err;
+
+    const employees = data.map(({ id, first_name, last_name }) => ({
+      name: first_name + " " + last_name,
+      value: id,
+    }));
+
+    inquirer
+      .prompt([
+        {
+          type: "list",
+          name: "name",
+          message: "Which employee would you like to delete?",
+          choices: employees,
+        },
+      ])
+      .then((empChoice) => {
+        const employee = empChoice.name;
+
+        const sql = `DELETE FROM employee WHERE id = ?`;
+
+        connection.query(sql, employee, (err, result) => {
+          if (err) throw err;
+          console.log("Successfully Deleted!");
+
+          showEmployees();
+        });
+      });
+  });
+};
