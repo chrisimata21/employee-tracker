@@ -130,8 +130,8 @@ showRoles = () => {
   console.log("Showing all roles...\n");
 
   const sql = `SELECT role.id, role.title, department.name AS department
-                 FROM role
-                 INNER JOIN department ON role.department_id = department.id`;
+               FROM role
+               INNER JOIN department ON role.department_id = department.id`;
 
   connection.promise().query(sql, (err, rows) => {
     if (err) throw err;
@@ -146,14 +146,84 @@ showEmployees = () => {
   const sql = `SELECT employee.id, 
                         employee.first_name, 
                         employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
+                      role.title, 
+                        role.title, 
                         role.title, 
                         department.name AS department,
                         role.salary, 
-                        CONCAT (manager.first_name, " ", manager.last_name) AS manager
-                        FROM employee
-                        LEFT JOIN role ON employee.role_id = role.id
-                        LEFT JOIN department ON role.department_id = department.id
-                        LEFT JOIN employee manager ON employee.manager_id = manager.id`;
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                        role.salary, 
+                      role.salary, 
+                      CONCAT (manager.first_name, " ", manager.last_name) AS manager
+               FROM employee
+                      LEFT JOIN role ON employee.role_id = role.id
+                      LEFT JOIN department ON role.department_id = department.id
+                      LEFT JOIN employee manager ON employee.manager_id = manager.id`;
 
   connection.promise().query(sql, (err, rows) => {
     if (err) throw err;
@@ -495,11 +565,81 @@ updateManager = () => {
 employeeDepartment = () => {
   console.log("Showing employee by departments...\n");
   const sql = `SELECT employee.first_name, 
+                      employee.last_name, 
                         employee.last_name, 
-                        department.name AS department
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                        employee.last_name, 
+                      employee.last_name, 
+                      department.name AS department
+               FROM employee 
                  FROM employee 
+               FROM employee 
+                 FROM employee 
+               FROM employee 
+                 FROM employee 
+               FROM employee 
+                 FROM employee 
+               FROM employee 
+                 FROM employee 
+               FROM employee 
+                 FROM employee 
+               FROM employee 
+                 FROM employee 
+               FROM employee 
+                 FROM employee 
+               FROM employee 
+                 FROM employee 
+               FROM employee 
+               LEFT JOIN role ON employee.role_id = role.id 
                  LEFT JOIN role ON employee.role_id = role.id 
-                 LEFT JOIN department ON role.department_id = department.id`;
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+                 LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN role ON employee.role_id = role.id 
+               LEFT JOIN department ON role.department_id = department.id`;
 
   connection.promise().query(sql, (err, rows) => {
     if (err) throw err;
@@ -617,7 +757,33 @@ viewBudget = () => {
                     department.name AS department,
                     SUM(salary) AS budget
                 FROM  role  
-                JOIN department ON role.department_id = department.id GROUP BY  department_id`;
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+                FROM  role  
+               FROM  role  
+               JOIN department ON role.department_id = department.id GROUP BY  department_id`;
 
   connection.promise().query(sql, (err, rows) => {
     if (err) throw err;
